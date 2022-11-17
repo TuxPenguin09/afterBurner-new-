@@ -30,8 +30,8 @@ public class start extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        progressbar1 = new midterms.swingx.progressbar();
         jLabel1 = new javax.swing.JLabel();
+        progressbar1 = new midterms.swingx.progressbar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -50,13 +50,13 @@ public class start extends javax.swing.JFrame {
         jLabel3.setText("Loading...");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
 
-        progressbar1.setForeground(new java.awt.Color(18, 20, 23));
-        progressbar1.setStringPainted(false);
-        getContentPane().add(progressbar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 800, 40));
-
         jLabel1.setForeground(new java.awt.Color(18, 20, 23));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/splashscreen.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        progressbar1.setForeground(new java.awt.Color(0, 0, 0));
+        progressbar1.setStringPainted(false);
+        getContentPane().add(progressbar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 455, 800, 50));
 
         pack();
         setLocationRelativeTo(null);
