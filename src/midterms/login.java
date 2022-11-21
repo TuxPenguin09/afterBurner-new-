@@ -8,16 +8,31 @@ package midterms;
  *
  * @author Blaise
  */
+import java.sql.Connection;
 import java.awt.Color;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.ResultSet;
+
 public class login extends javax.swing.JFrame {
     int positionX = 0;
     int positionY = 0;
     /**
      * Creates new form login
      */
+    Connect conn;
     public login() {
         initComponents();
+        conn= new Connect();
+        if(conn== null)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Connect Failed.Try again next time. ", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         addPlaceHolderStyle(jTextField1);
         addPlaceHolderStyle(jPasswordField1);
     }
@@ -39,22 +54,33 @@ public class login extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Oswald Medium", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("LOG IN");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, 270, 40));
 
         jLabel2.setFont(new java.awt.Font("Oswald SemiBold", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,12 +98,6 @@ public class login extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Oswald Medium", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("SIGN IN");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, 400, 70));
-
         jLabel4.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 51, 0));
         jLabel4.setText("Forgot password");
@@ -86,7 +106,7 @@ public class login extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Dont have an account?");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 51, 0));
@@ -115,7 +135,7 @@ public class login extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 300, 50));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 300, 50));
 
         jPasswordField1.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -147,16 +167,6 @@ public class login extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("-");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 0, -1, -1));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/login(v3).jpg"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -173,7 +183,17 @@ public class login extends javax.swing.JFrame {
                 jLabel1MousePressed(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("-");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -269,6 +289,20 @@ public class login extends javax.swing.JFrame {
         setLocation(evt.getXOnScreen()-positionX, evt.getYOnScreen()-positionY);
     }//GEN-LAST:event_jLabel1MouseDragged
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        String email=jTextField1.getText();
+        //username=email
+        String pass=Arrays.toString(jPasswordField1.getPassword());
+        if(email.isEmpty() || pass.isEmpty())
+        {
+            JOptionPane.showMessageDialog(rootPane, "All Textboxes should be filled", "Error", JOptionPane.ERROR_MESSAGE);
+        }else
+        {
+           userlogin(email,pass);
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -303,6 +337,7 @@ public class login extends javax.swing.JFrame {
             }
         });
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -317,4 +352,24 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private void userlogin(String email, String pass)
+    {
+        Connection dbconn=Connect.Connect();
+        try {
+            PreparedStatement yu=(PreparedStatement)
+                    dbconn.prepareStatement("Select * from accounts WHERE password=? AND email=?");
+            yu.setString(1,email);
+            yu.setString(2,pass);
+            ResultSet res=yu.executeQuery();
+            JOptionPane.showMessageDialog(rootPane, "Login Success", "Success", JOptionPane.PLAIN_MESSAGE);
+            if(res.next())
+            {
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
