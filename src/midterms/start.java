@@ -28,10 +28,10 @@ public class start extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        progressbar1 = new midterms.swingx.progressbar();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        progressbar1 = new midterms.swingx.progressbar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -39,6 +39,10 @@ public class start extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        progressbar1.setForeground(new java.awt.Color(0, 0, 0));
+        progressbar1.setStringPainted(false);
+        getContentPane().add(progressbar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 455, 800, 50));
 
         jLabel2.setFont(new java.awt.Font("Oswald", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -53,10 +57,6 @@ public class start extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(18, 20, 23));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/splashscreen.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        progressbar1.setForeground(new java.awt.Color(0, 0, 0));
-        progressbar1.setStringPainted(false);
-        getContentPane().add(progressbar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 455, 800, 50));
 
         pack();
         setLocationRelativeTo(null);

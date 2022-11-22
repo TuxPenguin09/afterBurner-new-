@@ -273,7 +273,7 @@ public class dashboard1 extends javax.swing.JFrame {
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/icons8-circled-thin-50.png"))); // NOI18N
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 80, 110, 70));
-        getContentPane().add(chart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 410, 220));
+        getContentPane().add(chart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 380, 220));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/bgfinals1.jpg"))); // NOI18N
