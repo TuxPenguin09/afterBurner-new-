@@ -43,7 +43,6 @@ public class Signup extends javax.swing.JFrame {
     private void initComponents() {
 
         signUp = new javax.swing.JLabel();
-        lastName = new javax.swing.JTextField();
         firstName = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
@@ -64,28 +63,9 @@ public class Signup extends javax.swing.JFrame {
         signUp.setText("SIGN UP");
         getContentPane().add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 400, 70));
 
-        lastName.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
-        lastName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        lastName.setText("Last Name");
-        lastName.setBorder(null);
-        lastName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                lastNameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                lastNameFocusLost(evt);
-            }
-        });
-        lastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 160, 50));
-
         firstName.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         firstName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        firstName.setText("First Name");
+        firstName.setText("Username");
         firstName.setBorder(null);
         firstName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -100,7 +80,7 @@ public class Signup extends javax.swing.JFrame {
                 firstNameActionPerformed(evt);
             }
         });
-        getContentPane().add(firstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 160, 50));
+        getContentPane().add(firstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 380, 50));
 
         email.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -266,27 +246,6 @@ public class Signup extends javax.swing.JFrame {
         
     }//GEN-LAST:event_firstNameFocusLost
 
-    private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameActionPerformed
-
-    private void lastNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameFocusGained
-
-        if(lastName.getText().equals("Last Name")){
-            lastName.setText(null);
-            lastName.requestFocus();
-            removePlaceHolderStyle(lastName);
-        }
-    }//GEN-LAST:event_lastNameFocusGained
-
-    private void lastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameFocusLost
-
-        if(lastName.getText().length()==0){
-            addPlaceHolderStyle(lastName);
-            lastName.setText("Last Name");         
-        }
-    }//GEN-LAST:event_lastNameFocusLost
-
     private void emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusLost
 
         if(email.getText().length()==0){
@@ -396,7 +355,6 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField lastName;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel signUp;
     // End of variables declaration//GEN-END:variables
