@@ -10,6 +10,9 @@ package midterms;
  */
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JTextField;
 public class Signup extends javax.swing.JFrame {
     int positionX = 0;
@@ -19,7 +22,6 @@ public class Signup extends javax.swing.JFrame {
      */
     public Signup() {
         initComponents();
-        addPlaceHolderStyle(lastName);
         addPlaceHolderStyle(firstName);
         addPlaceHolderStyle(email);
         addPlaceHolderStyle(password);
@@ -61,6 +63,11 @@ public class Signup extends javax.swing.JFrame {
         signUp.setForeground(new java.awt.Color(255, 255, 255));
         signUp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         signUp.setText("SIGN UP");
+        signUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpMouseClicked(evt);
+            }
+        });
         getContentPane().add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 400, 70));
 
         firstName.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
@@ -311,6 +318,31 @@ public class Signup extends javax.swing.JFrame {
     private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
         setLocation(evt.getXOnScreen()-positionX, evt.getYOnScreen()-positionY);
     }//GEN-LAST:event_jLabel1MouseDragged
+
+    private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
+        // TODO add your handling code here:
+        if (password == confirmPassword) {
+            // INSERT INTO `accounts` (`id`, `username`, `email`, `password`) VALUES (NULL, 'Username', 'Email', 'Password');
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/afterburner","root","");
+                String sql = "INSERT INTO `accounts` (`id`, `username`, `email`, `password`) VALUES (NULL, ?, ?, ?);";
+                
+                PreparedStatement psmt = conn.prepareStatement(sql);
+           
+                psmt.setString(1, firstName.getText());
+                psmt.setString(2, email.getText());
+                psmt.setString(3, String.valueOf(password.getPassword()));
+         
+                psmt.executeUpdate();
+                System.out.println("Account created successfully");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else {
+            System.out.println("Password not matched with Confirm Password");
+        }
+    }//GEN-LAST:event_signUpMouseClicked
     
     /**
      * @param args the command line arguments
