@@ -29,8 +29,9 @@ public class aboutus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -39,6 +40,18 @@ public class aboutus extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/logoaf(3).png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel3);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 260, 80));
 
         jLabel2.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -49,14 +62,6 @@ public class aboutus extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/logoaf(3).png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +76,8 @@ public class aboutus extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 180, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/aboutus(try2).jpg"))); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/whoweare.jpg"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel1MouseDragged(evt);
@@ -96,12 +102,6 @@ public class aboutus extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        mainmenu jf1 = new mainmenu();
-        jf1.show();
-        dispose();
-    }//GEN-LAST:event_jLabel3MouseClicked
-
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         setState(aboutus.ICONIFIED);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -118,6 +118,12 @@ public class aboutus extends javax.swing.JFrame {
         positionX = evt.getX();
         positionY = evt.getY();
     }//GEN-LAST:event_jLabel1MousePressed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        mainmenu jf1 = new mainmenu();
+        jf1.show();
+        dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -159,6 +165,7 @@ public class aboutus extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

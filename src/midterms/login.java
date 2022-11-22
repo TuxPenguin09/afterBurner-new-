@@ -101,12 +101,12 @@ public class login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 51, 0));
         jLabel4.setText("Forgot password");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 530, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Dont have an account?");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 51, 0));
@@ -155,7 +155,7 @@ public class login extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 300, 40));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 300, 40));
 
         jLabel7.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));

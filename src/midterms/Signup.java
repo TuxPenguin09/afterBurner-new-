@@ -19,7 +19,6 @@ public class Signup extends javax.swing.JFrame {
      */
     public Signup() {
         initComponents();
-        addPlaceHolderStyle(lastName);
         addPlaceHolderStyle(firstName);
         addPlaceHolderStyle(email);
         addPlaceHolderStyle(password);
@@ -167,7 +166,7 @@ public class Signup extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 0, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/signup(v2).jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/midterms/Pictures/sgnup.jpg"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel1MouseDragged(evt);
@@ -199,7 +198,7 @@ public class Signup extends javax.swing.JFrame {
 
     private void firstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameFocusGained
 
-    if(firstName.getText().equals("First Name")){ 
+    if(firstName.getText().equals("Username")){ 
         firstName.setText(null);
         firstName.requestFocus();
         removePlaceHolderStyle(firstName);
@@ -241,7 +240,7 @@ public class Signup extends javax.swing.JFrame {
 
     if(firstName.getText().length()==0){
         addPlaceHolderStyle(firstName);
-        firstName.setText("First Name");         
+        firstName.setText("Username");         
         }
         
     }//GEN-LAST:event_firstNameFocusLost
