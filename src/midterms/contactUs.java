@@ -5,6 +5,9 @@
 package midterms;
 import java.awt.Color;
 import javax.swing.JTextField;
+
+
+
 /**
  *
  * @author Blaise
@@ -61,6 +64,11 @@ public class contactUs extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Oswald SemiBold", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SEND MESSAGE");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 570, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Oswald", 0, 18)); // NOI18N
@@ -181,7 +189,7 @@ public class contactUs extends javax.swing.JFrame {
                 jLabel4MousePressed(evt);
             }
         });
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -272,6 +280,10 @@ public class contactUs extends javax.swing.JFrame {
         setLocation(evt.getXOnScreen()-positionX, evt.getYOnScreen()-positionY);
     }//GEN-LAST:event_jLabel4MouseDragged
 
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        
+    }//GEN-LAST:event_jLabel2MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +317,10 @@ public class contactUs extends javax.swing.JFrame {
                 new contactUs().setVisible(true);
             }
         });
+      
+            
+            
+            
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
