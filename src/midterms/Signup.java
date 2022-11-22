@@ -321,7 +321,8 @@ public class Signup extends javax.swing.JFrame {
 
     private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
         // TODO add your handling code here:
-        if (password == confirmPassword) {
+        System.out.println("Signing up...");
+        if (String.valueOf(password.getPassword()).equals(String.valueOf(confirmPassword.getPassword()))) {
             // INSERT INTO `accounts` (`id`, `username`, `email`, `password`) VALUES (NULL, 'Username', 'Email', 'Password');
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
